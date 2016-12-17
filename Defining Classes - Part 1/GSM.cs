@@ -54,7 +54,7 @@ namespace Defining_Classes___Part_1
         public string Owner { get; set; }
         public Battery Battery { get; set; }
         public Display Display { get; set; }
-        public static GSM IPhone4S { get; }
+        public static GSM IPhone4S { get { return iPhone4S; } }
 
         //methods
         public void AddCall(Call call)

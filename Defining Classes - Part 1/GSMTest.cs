@@ -11,7 +11,7 @@ namespace Defining_Classes___Part_1
         private static string[] owners = { "Koko", "Doko", "Tsoko" };
 
         private static Battery[] batteries = { new Battery(hoursTalk: 19, hoursIdle: 384, type: BatteryType.LiIon),
-                                        new Battery( hoursTalk: 20, hoursIdle: 400, type: BatteryType.LiIon),
+                                        new Battery(hoursTalk: 20, hoursIdle: 400, type: BatteryType.LiIon),
                                         new Battery(type: BatteryType.LiIon) };
 
         private static Display[] displays = { new Display(16000000, 4.5),
