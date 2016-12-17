@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Defining_Classes___Part_1
+﻿namespace Defining_Classes___Part_1
 {
-    public class Display
+    class Display
     {
-        public int Colors { get; private set; }
-        public string Resolution { get; private set; }
-        public double Inches { get; private set; }
+        public int? NumberOfColors { get; set; }
+        public double? Size { get; set; }
 
-        public Display(int colors = 0, string resolution = null, double inches = 0)
+        public Display(int? numberOfColors = null, double? size = null)
         {
-            this.Colors = colors;
-            this.Resolution = resolution;
-            this.Inches = inches;
+            NumberOfColors = numberOfColors;
+            Size = size;
         }
     }
 }

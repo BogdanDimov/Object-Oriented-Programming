@@ -1,37 +1,117 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Defining_Classes___Part_1
 {
-    public class GSM
+    class GSM
     {
-        public string Manufacturer { get; private set; }
-        public string Model { get; private set; }
-        public int Year { get; private set; }
-        public Display GsmDisplay { get; private set; }
-        public Battery GsmBattery { get; private set; }
-        public bool HasCamera { get; private set; }
-        public static GSM IPhone4S = new GSM("Apple", "iPhone 4S", new Display(16000000, "640x960", 3.5), new Battery(Battery.BatteryType.LiPo, capacity: 1432), 2011, true);
+        //fields
+        private string model = null;
+        private string manufacturer = null;
+        private decimal? price = null;
+        private string owner = null;
+        private Battery battery = null;
+        private Display display = null;
+        public List<Call> callHistory = new List<Call>();
+        private static readonly GSM iPhone4S = new GSM("iPhone 4S", "Apple", 190m, "Stamat", new Battery(type: BatteryType.LiPo, hoursTalk: 14, hoursIdle: 200), new Display(16000000, 3.5));
 
-        public GSM(string manufacturer, string model, Display gsmDisplay, Battery gsmBattery, int year = 2010, bool hasCamera = true)
+        //constructors
+        public GSM(string model, string manufacturer)
         {
-            this.Manufacturer = manufacturer;
-            this.Model = model;
-            this.GsmDisplay = GsmDisplay;
-            this.GsmBattery = gsmBattery;
-            this.Year = year;
-            this.HasCamera = hasCamera;
+            Model = model;
+            Manufacturer = manufacturer;
+        }
+
+        public GSM(string model, string manufacturer, decimal? price, string owner, Battery battery, Display display) : this(model, manufacturer)
+        {
+            Price = price;
+            Owner = owner;
+            Display = display;
+            Battery = battery;
+        }
+
+        //properties
+        public string Model { get; set; }
+        public string Manufacturer { get; set; }
+        public decimal? Price
+        {
+            get { return price; }
+
+            set
+            {
+                if (value < 0m)
+                {
+                    throw new ArgumentOutOfRangeException("Price must be greater than 0.");
+                }
+                else
+                {
+                    price = value;
+                }
+            }
+        }
+
+        public string Owner { get; set; }
+        public Battery Battery { get; set; }
+        public Display Display { get; set; }
+        public static GSM IPhone4S { get; }
+
+        //methods
+        public void AddCall(Call call)
+        {
+            callHistory.Add(call);
+        }
+
+        public void DeleteCall(Call call)
+        {
+            callHistory.Remove(call);
+        }
+
+        public void ClearCallHistory()
+        {
+            Console.WriteLine("Clearing the call history...");
+            callHistory.Clear();
+        }
+
+        public decimal CalculateTotalPrice(decimal pricePerMinute)
+        {
+            decimal totalPrice = 0m;
+            foreach (var call in callHistory)
+            {
+                totalPrice += (decimal)(call.Duration.TotalMinutes) * pricePerMinute;
+            }
+
+            return totalPrice;
+        }
+
+        public void PrintCallHistory()
+        {
+            if (!callHistory.Any())
+            {
+                Console.WriteLine("Call history is empty!");
+            }
+            else
+            {
+                foreach (var call in callHistory)
+                {
+                    Console.WriteLine(call);
+                    Console.WriteLine("***************");
+                }
+            }
         }
 
         public override string ToString()
         {
-            return "Mobile phone " + Manufacturer + " " + Model +
-                "\nYear of manufacture: " + Year +
-                "\nDisplay size: " + GsmDisplay.Inches +
-                "in\nBuilt-in camera: " + (HasCamera ? "Yes" : "No");
+            return "Mobile phone: " + Manufacturer.ToString() + " " + Model.ToString() +
+                "\nPrice: " + (Price != null ? Price.ToString() + " EUR" : "<not specified>") +
+                "\nOwner: " + (Owner != null ? Owner.ToString() : "<not specified>") +
+                "\nBattery type: " + (Battery != null && Battery.Type != null ? Battery.Type.ToString() : "<not specified>") +
+                "\nBattery model: " + (Battery != null && Battery.Model != null ? Battery.Model.ToString() : "<not specified>") +
+                "\nTalk time: " + (Battery != null && Battery.HoursTalk != null ? Battery.HoursTalk.ToString() + " hours" : "<not specified>") +
+                "\nIdle time: " + (Battery != null && Battery.HoursIdle != null ? Battery.HoursIdle.ToString() + " hours" : "<not specified>") +
+                "\nDisplay size: " + (Display != null && Display.Size != null ? Display.Size.ToString() + " inches" : "<not specified>") +
+                "\nDisplay colors: " + (Display != null && Display.NumberOfColors != null ? Display.NumberOfColors.ToString() : "<not specified>") +
+                "\n***************";
         }
     }
 }
