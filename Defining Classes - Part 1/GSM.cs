@@ -9,10 +9,10 @@ namespace Defining_Classes___Part_1
         //fields
         private string model;
         private string manufacturer;
-        private decimal? price;
-        private string owner;
-        private Battery battery;
-        private Display display;
+        private decimal? price = null;
+        private string owner = null;
+        private Battery battery = null;
+        private Display display = null;
         private List<Call> callHistory = new List<Call>();
         private static readonly GSM iPhone4S = new GSM("iPhone 4S", "Apple", 190m, "Stamat", new Battery(type: BatteryType.LiPo, hoursTalk: 14, hoursIdle: 200), new Display(16000000, 3.5));
 
@@ -23,7 +23,7 @@ namespace Defining_Classes___Part_1
             Manufacturer = manufacturer;
         }
 
-        public GSM(string model, string manufacturer, decimal? price = null, string owner = null, Battery battery = null, Display display = null) : this(model, manufacturer)
+        public GSM(string model, string manufacturer, decimal? price, string owner, Battery battery, Display display) : this(model, manufacturer)
         {
             Price = price;
             Owner = owner;
@@ -32,8 +32,8 @@ namespace Defining_Classes___Part_1
         }
 
         //properties
-        public string Model { get; set; }
-        public string Manufacturer { get; set; }
+        public string Model { get { return model; } set { model = value; } }
+        public string Manufacturer { get { return manufacturer; } set { manufacturer = value; } }
         public decimal? Price
         {
             get { return price; }
@@ -51,9 +51,9 @@ namespace Defining_Classes___Part_1
             }
         }
 
-        public string Owner { get; set; }
-        public Battery Battery { get; set; }
-        public Display Display { get; set; }
+        public string Owner { get { return owner; } set { owner = value; } }
+        public Battery Battery { get { return battery; } set { battery = value; } }
+        public Display Display { get { return display; } set { display = value; } }
         public List<Call> CallHistory { get { return callHistory; } set { callHistory = value; } }
         public static GSM IPhone4S { get { return iPhone4S; } }
 

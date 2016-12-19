@@ -8,6 +8,8 @@ namespace Defining_Classes___Part_1
         public string PhoneNumber { get; set; } = "0800123654";
         public TimeSpan Duration { get; set; } = new TimeSpan(0, 5, 30);
 
+        public Call() { }
+
         public Call(DateTime time, string phoneNumber, TimeSpan duration)
         {
             Time = time;
