@@ -7,13 +7,13 @@ namespace Defining_Classes___Part_1
     class GSM
     {
         //fields
-        private string model = null;
-        private string manufacturer = null;
-        private decimal? price = null;
-        private string owner = null;
-        private Battery battery = null;
-        private Display display = null;
-        public List<Call> callHistory = new List<Call>();
+        private string model;
+        private string manufacturer;
+        private decimal? price;
+        private string owner;
+        private Battery battery;
+        private Display display;
+        private List<Call> callHistory = new List<Call>();
         private static readonly GSM iPhone4S = new GSM("iPhone 4S", "Apple", 190m, "Stamat", new Battery(type: BatteryType.LiPo, hoursTalk: 14, hoursIdle: 200), new Display(16000000, 3.5));
 
         //constructors
@@ -23,7 +23,7 @@ namespace Defining_Classes___Part_1
             Manufacturer = manufacturer;
         }
 
-        public GSM(string model, string manufacturer, decimal? price, string owner, Battery battery, Display display) : this(model, manufacturer)
+        public GSM(string model, string manufacturer, decimal? price = null, string owner = null, Battery battery = null, Display display = null) : this(model, manufacturer)
         {
             Price = price;
             Owner = owner;
@@ -54,23 +54,24 @@ namespace Defining_Classes___Part_1
         public string Owner { get; set; }
         public Battery Battery { get; set; }
         public Display Display { get; set; }
+        public List<Call> CallHistory { get { return callHistory; } set { callHistory = value; } }
         public static GSM IPhone4S { get { return iPhone4S; } }
 
         //methods
         public void AddCall(Call call)
         {
-            callHistory.Add(call);
+            CallHistory.Add(call);
         }
 
         public void DeleteCall(Call call)
         {
-            callHistory.Remove(call);
+            CallHistory.Remove(call);
         }
 
         public void ClearCallHistory()
         {
             Console.WriteLine("Clearing the call history...");
-            callHistory.Clear();
+            CallHistory.Clear();
         }
 
         public decimal CalculateTotalPrice(decimal pricePerMinute)

@@ -16,7 +16,7 @@ namespace Defining_Classes___Part_1
             gsm.PrintCallHistory();
             var totalPrice = gsm.CalculateTotalPrice(pricePerMinute);
             Console.WriteLine($"Total price of all calls: {totalPrice:0.00} lv.\n");
-            gsm.DeleteCall(gsm.callHistory.OrderByDescending(x => x.Duration).FirstOrDefault()); //remove longest call
+            gsm.DeleteCall(gsm.CallHistory.OrderByDescending(x => x.Duration).FirstOrDefault()); //remove longest call
             var newTotalPrice = gsm.CalculateTotalPrice(pricePerMinute); // re-calculate total price
             Console.WriteLine($"Total price without longest call: {newTotalPrice:0.00} lv.\n"); //print new total price
             gsm.ClearCallHistory(); //finally clear the call history
