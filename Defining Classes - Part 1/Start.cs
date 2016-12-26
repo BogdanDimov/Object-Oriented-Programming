@@ -1,6 +1,6 @@
 ﻿namespace Defining_Classes___Part_1
 {
-    class Program
+    class Start
     {
         static void Main()
         {

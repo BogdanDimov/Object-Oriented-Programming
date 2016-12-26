@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Defining_Classes___Part_1
 {
-    class GSMCallHistoryTest
+    public class GSMCallHistoryTest
     {
         private const decimal pricePerMinute = 0.37m;
 

@@ -1,20 +1,18 @@
-﻿using Generics;
-using Point3D;
-using Point3D.Distance;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using DefiningClassesPart2.GenericList;
+using DefiningClassesPart2.Matrix;
+using DefiningClassesPart2.Space3D;
 
-namespace Defining_Classes_Part2
+namespace DefiningClassesPart2
 {
-    class Start
+    public class Start
     {
-        static void Main()
+        public static void Main()
         {
-            //Console.WriteLine("Distance between points: " + Distance3D.FindDistance(new Point3d(1, 2, 3), new Point3d(4, 5, 6)).ToString("F4"));
+            //// Test Point3D
+            //Console.WriteLine("Distance between points: " + Distance3D.FindDistance(new Point3D(1, 2, 3), new Point3D(4, 5, 6)).ToString("F4"));
 
+            //// Test GenericList<T>
             //var listOfInts = new GenericList<int>();
             //listOfInts.Add(234123);
             //listOfInts.Add(21342);
@@ -38,15 +36,47 @@ namespace Defining_Classes_Part2
             //Console.WriteLine("List after calling the Clear method:");
             //Console.WriteLine(listOfInts);
 
-            var listOfStrings = new GenericList<string>();
-            listOfStrings.Add("One");
-            listOfStrings.Add("Two");
-            listOfStrings.Add("Three");
-            listOfStrings.Add("Four");
-            Console.WriteLine("Printing the list:");
-            Console.WriteLine(listOfStrings);
-            Console.WriteLine($"Min element = {listOfStrings.Min()}");
-            Console.WriteLine($"Max element = {listOfStrings.Max()}");
+            //var listOfStrings = new GenericList<string>();
+            //listOfStrings.Add("One");
+            //listOfStrings.Add("Two");
+            //listOfStrings.Add("Three");
+            //listOfStrings.Add("Four");
+            //Console.WriteLine("Printing the list:");
+            //Console.WriteLine(listOfStrings);
+            //Console.WriteLine($"Min element = {listOfStrings.Min()}");
+            //Console.WriteLine($"Max element = {listOfStrings.Max()}");
+
+            // Test Matrix<T>
+            var matrix1 = new Matrix<int>(3, 3);
+            var matrix2 = new Matrix<int>(3, 3);
+
+            for (var i = 0; i < matrix1.Rows; i++)
+            {
+                for (var j = 0; j < matrix1.Cols; j++)
+                {
+                    matrix1[i, j] = i + j;
+                }
+            }
+
+            for (var i = 0; i < matrix2.Rows; i++)
+            {
+                for (var j = 0; j < matrix2.Cols; j++)
+                {
+                    matrix2[i, j] = i + j;
+                }
+            }
+
+            Console.WriteLine(matrix1 + matrix2);
+            Console.WriteLine(matrix1 - matrix2);
+            Console.WriteLine(matrix1 * matrix2);
+            if (matrix1)
+            {
+                Console.WriteLine("There's at least one non-zero element.");
+            }
+            else
+            {
+                Console.WriteLine("All elements are zero.");
+            }
         }
     }
 }

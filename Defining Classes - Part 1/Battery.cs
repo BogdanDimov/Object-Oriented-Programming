@@ -1,6 +1,6 @@
 ﻿namespace Defining_Classes___Part_1
 {
-    class Battery
+    public class Battery
     {
         public string Model { get; set; }
         public int? HoursIdle { get; set; }

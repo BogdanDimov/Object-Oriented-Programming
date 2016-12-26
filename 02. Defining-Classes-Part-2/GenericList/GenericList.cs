@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Generics
+namespace DefiningClassesPart2.GenericList
 {
     public class GenericList<T> where T : IComparable
     {
-        const int DefaultCapacity = 4;
+        private const int DefaultCapacity = 4;
 
         private T[] elementsList;
         private int elementsCount;
@@ -19,7 +17,10 @@ namespace Generics
             elementsCount = 0;
         }
 
-        public GenericList() : this(DefaultCapacity) { }
+        public GenericList()
+            : this(DefaultCapacity)
+        {
+        }
 
         public int ElementsCount
         {
@@ -27,27 +28,6 @@ namespace Generics
             {
                 return elementsCount;
             }
-        }
-
-        public void Add(T element)
-        {
-            Insert(elementsCount, element);
-        }
-
-        public void RemoveAt(int index)
-        {
-            if (index < 0 || index >= elementsCount)
-            {
-                throw new IndexOutOfRangeException(string.Format("Invalid index: {0}.", index));
-            }
-
-            for (int i = index; i < elementsCount; i++)
-            {
-                elementsList[i] = elementsList[i + 1];
-            }
-
-            elementsList[elementsCount - 1] = default(T);
-            elementsCount--;
         }
 
         // access element
@@ -72,6 +52,27 @@ namespace Generics
 
                 elementsList[index] = value;
             }
+        }
+
+        public void Add(T element)
+        {
+            Insert(elementsCount, element);
+        }
+
+        public void RemoveAt(int index)
+        {
+            if (index < 0 || index >= elementsCount)
+            {
+                throw new IndexOutOfRangeException(string.Format("Invalid index: {0}.", index));
+            }
+
+            for (int i = index; i < elementsCount; i++)
+            {
+                elementsList[i] = elementsList[i + 1];
+            }
+
+            elementsList[elementsCount - 1] = default(T);
+            elementsCount--;
         }
 
         // insert element

@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Matrix\Matrix.cs" />
     <Compile Include="Point3D\Distance3D.cs" />
-    <Compile Include="Generics\GenericList.cs" />
+    <Compile Include="GenericList\GenericList.cs" />
     <Compile Include="Point3D\Path.cs" />
     <Compile Include="Point3D\PathStorage.cs" />
     <Compile Include="Point3D\Point3D.cs" />

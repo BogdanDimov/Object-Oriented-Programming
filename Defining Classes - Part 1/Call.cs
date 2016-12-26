@@ -2,7 +2,7 @@
 
 namespace Defining_Classes___Part_1
 {
-    class Call
+    public class Call
     {
         public DateTime Time { get; set; } = new DateTime(2016, 12, 16);
         public string PhoneNumber { get; set; } = "0800123654";

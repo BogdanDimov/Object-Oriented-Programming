@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Point3D.Path
+﻿namespace DefiningClassesPart2.Space3D
 {
     public class Path
     {
-        public Point3d[] Sequence { get; }
-
-        public Path(Point3d[] sequence)
+        public Path(Point3D[] sequence)
         {
             Sequence = sequence;
         }
+
+        public Point3D[] Sequence { get; }
     }
 }

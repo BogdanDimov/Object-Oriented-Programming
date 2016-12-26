@@ -2,7 +2,7 @@
 
 namespace Defining_Classes___Part_1
 {
-    class GSMTest
+    public class GSMTest
     {
         private const int arrayLength = 3;
         private static string[] models = { "Lumia 1020", "G5", "Moto G (3rd gen)" };

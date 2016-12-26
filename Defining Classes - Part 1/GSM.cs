@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Defining_Classes___Part_1
 {
-    class GSM
+    public class GSM
     {
         //fields
         private string model;
