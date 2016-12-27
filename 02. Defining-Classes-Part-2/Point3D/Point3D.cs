@@ -28,7 +28,7 @@
 
         public override string ToString()
         {
-            return $"X: {X} Y: {Y} Z: {Z}";
+            return string.Format($"({X}, {Y}, {Z})");
         }
     }
 }

@@ -9,30 +9,31 @@ namespace DefiningClassesPart2.Space3D
 
         public static void SavePath(Point3D[] points)
         {
-            using (StreamWriter outputFile = new StreamWriter(Filename))
+            using (var outputFile = new StreamWriter(Filename))
             {
                 foreach (var point in points)
                 {
-                    outputFile.WriteLine($"{point.X} {point.Y} {point.Z}");
+                    outputFile.WriteLine(string.Join(", ", new string[] { point.X.ToString(), point.Y.ToString(), point.Z.ToString() }));
                 }
             }
         }
 
-        public static void LoadPath()
+        public static List<Point3D> LoadPath()
         {
-            //var path = System.IO.Path.Combine(Directory.GetCurrentDirectory(), $"\\{filename}");
-            List<Point3D> path = new List<Point3D>();
+            var path = new List<Point3D>();
 
-            using (StreamReader sr = new StreamReader(Filename))
+            using (var sr = new StreamReader(Filename))
             {
                 string line;
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    line.Split(' ');
-                    path.Add(new Point3D(line[0], line[1], line[0]));
+                    string[] coords = line.Split(',');
+                    path.Add(new Point3D(int.Parse(coords[0]), int.Parse(coords[1]), int.Parse(coords[2])));
                 }
             }
+
+            return path;
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Text;
+using DefiningClassesPart2.VersionAttribute;
 
 namespace DefiningClassesPart2.Matrix
 {
+    [MyVersion(1, 5)]
     public class Matrix<T>
     {
         private int rows;
