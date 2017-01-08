@@ -85,7 +85,7 @@ namespace DefiningClassesPart2.Matrix
             // first make sure matrices can be subtracted
             if (left.rows != right.rows || left.cols != right.cols)
             {
-                throw new InvalidOperationException("Can't add matrices of different sizes.");
+                throw new InvalidOperationException("Can't subtract matrices of different sizes.");
             }
 
             var rows = left.rows;
