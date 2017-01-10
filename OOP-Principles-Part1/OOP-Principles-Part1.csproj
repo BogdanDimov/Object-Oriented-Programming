@@ -49,6 +49,10 @@
     <Compile Include="Problem 1. School classes\School.cs" />
     <Compile Include="Problem 1. School classes\Student.cs" />
     <Compile Include="Problem 1. School classes\Teacher.cs" />
+    <Compile Include="Problem 2. Students and workers\Human.cs" />
+    <Compile Include="Problem 2. Students and workers\Student.cs" />
+    <Compile Include="Problem 2. Students and workers\StudentsWorkersTest.cs" />
+    <Compile Include="Problem 2. Students and workers\Worker.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
