@@ -53,6 +53,15 @@
     <Compile Include="Problem 2. Students and workers\Student.cs" />
     <Compile Include="Problem 2. Students and workers\StudentsWorkersTest.cs" />
     <Compile Include="Problem 2. Students and workers\Worker.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\Animal.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\AnimalsTest.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\Cat.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\Dog.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\Frog.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\Gender.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\ISound.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\Kitten.cs" />
+    <Compile Include="Problem 3. Animal hierarchy\Tomcat.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,6 +69,7 @@
     <None Include="App.config" />
     <None Include="Problem 1. School classes\SchoolClassDiagram.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

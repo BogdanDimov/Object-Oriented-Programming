@@ -72,10 +72,13 @@ namespace OOP_Principles_Part1.Problem_2._Students_and_workers
                 .ThenBy(x => x.LastName)
                 .ToList();
 
+            Console.WriteLine("People sorted by first and last name:");
             foreach (var human in merged)
             {
                 Console.WriteLine($"{human.FirstName} {human.LastName}");
             }
+
+            Console.WriteLine();
         }
     }
 }
